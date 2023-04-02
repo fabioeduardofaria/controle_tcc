@@ -1,0 +1,21 @@
+<h1>Sobre nós</h1>
+<hr>
+<p>Controlador: IndexController</p>
+<p>Action: sobre_nos</p>
+
+<!-- <h2>Simulando dados vindo do banco</h2> -->
+
+<?php
+// echo '<pre>';
+// print_r($this->view->dados);
+// echo '</pre>';
+// exit;
+
+foreach ($this->view->dados as $indice => $info) { ?>
+
+    <h1><?= $info['titulo']; ?></h1>
+    <p><?= $info['descricao']; ?></p>
+    <hr>
+
+<?php } ?>
+

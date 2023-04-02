@@ -1,0 +1,42 @@
+<h1>Cadastro de Produtos</h1>
+<hr>
+<p>Controlador: IndexController</p>
+<p>Action: produto</p>
+<hr>
+<h2>Cadastro no banco de dados com MVC</h2>
+
+<?php if ($this->view->status['status'] == "SUCCESS") { ?>
+    <small class="form-text text-success"><?= $this->view->status['msg'] ?></small>
+<?php } ?>
+
+<form action="/salvar_produto" method="POST">
+    <div>
+        <label>Descrição (nome)</label>
+        <div>
+            <input name="descricao" value="<?= isset($this->view->tempProduto['descricao']) ? $this->view->tempProduto['descricao'] : ""; ?>" 
+            type="text" placeholder="Seu nome">
+        </div>
+    </div>
+
+    <div>
+        <label>Preço</label>
+        <div>
+            <input name="preco" value="<?= isset($this->view->tempProduto['preco']) ? $this->view->tempProduto['preco'] : ""; ?>" type="number" 
+            placeholder="R$ 0,00" min="0" max="100" step=".05">
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <button>Enviar</button>
+        </div>
+
+        <div>
+            <?php if ($this->view->status['status'] == "ERROR") { ?>
+                <small class="form-text text-danger"><?= $this->view->status['msg'] ?></small>
+            <?php } ?>
+        </div>
+
+
+    </div>
+</form>
